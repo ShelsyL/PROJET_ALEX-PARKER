@@ -2,10 +2,10 @@ ALEX PARKER - CONSIGNES
 
 3 PAGES :
 	1. My Blog (page par défaut) :
-		- Liste des posts du blog triés par date décroissante et limités à 10
-		- Texte tronqué à 150 caractères
-		- Date formatée
-		- Lien vers le détails d'un post
+		- Liste des posts du blog triés par date décroissante et limités à 10 => OK
+		- Texte tronqué à 150 caractères 	=> OK
+		- Date formatée 	=> OK ( a revoir si c'est bon formatage)
+		- Lien vers le détails d'un post => OK
 		- Lien vers le formulaire d'ajout d'un post
 
 	2. Détails d'un post

@@ -13,6 +13,14 @@
     include_once '../app/controleurs/postsControleur.php';
     \App\Controleurs\PostsControleur\showAction($connexion, $_GET['postId']);
 
+
+  // ROUTES DES POSTS
+  // PATTERN: index.php?posts=xxx
+  elseif (isset($_GET['posts'])):
+     include_once '../app/routeurs/postsRouteur.php';
+
+
+
 // ROUTE PAR DEFAUT
   // PATTERN : /
   // CTRL: postsControleur

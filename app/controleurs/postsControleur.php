@@ -21,13 +21,20 @@ function indexAction(\PDO $connexion) { // On récupère la connexion PDO
 
   // Je charge la vue post/index dans $content
   // var_dump($posts); => Etape OK
-  GLOBAL $content;
+  GLOBAL $content, $title;
+  $title = "Post Form";
   ob_start();
-    include'../app/vues/posts/index.php';
+    include '../app/vues/posts/index.php';
     $content = ob_get_clean();
 }
 
 
+/**
+ * [showAction description]
+ * @param  PDO    $connexion [description]
+ * @param  int    $id        [description]
+ * @return [type]            [description]
+ */
 
 // SHOWACTION (détail d'un post)
 function showAction(\PDO $connexion, int $id) { // Qui va récupérer une connexion PDO et un entier $id
@@ -42,4 +49,28 @@ function showAction(\PDO $connexion, int $id) { // Qui va récupérer une connex
   ob_start();
    include '../app/vues/posts/show.php'; // Je charge la vue
   $content = ob_get_clean(); // Je met cette vue dans $content
+}
+
+
+function addFormAction(\PDO $connexion) {
+  // Je vais chercher la liste des CATEGORIES
+  // include_once '../app/modeles/categoriesModele.php';
+  // $categories = \App\Modeles\CategoriesModele\findAll($connexion);
+
+  // Je charge la vue addForm (le formulaire) dans $content
+  GLOBAL $content, $title;
+  $title = "Ajout d'un post";
+  ob_start();
+  include '../app/vues/posts/addForm.php';
+  $content = ob_get_clean();
+}
+
+
+function addAction(\PDO $connexion) {
+  // Je demande au modèle d'ajouter le post
+    include_once '../app/modeles/postsModele.php';
+    $id = PostsModele\insert($connexion, $_POST);
+
+    // Je redirige vers la liste des posts
+    header('location: ' . BASE_URL_ADMIN . 'posts');
 }
