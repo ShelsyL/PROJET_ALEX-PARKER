@@ -12,6 +12,10 @@ RewriteEngine on
 # ROUTES
 #--------------------------------------------------
 
+# ROUTE D'UN POST
+# PATTERN: posts/id/slug.html (titre = Article 1) => (slug: article-1)
+# URL: post.php?ID=x
+RewriteRule ^posts\/([1-9][0-9]*)\/[a-z0-9][a-z0-9\-]*$ index.php?postId=$1 [L]
 
 # --------------------------------------------------
 RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]

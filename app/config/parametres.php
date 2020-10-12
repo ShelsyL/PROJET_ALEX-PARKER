@@ -5,7 +5,7 @@
 */
 
 // ZONES DYNAMIQUES
-	$content ='Coucou';
+	$content = '';
 	$title = '';
 
 // PARAMETRES DE CONNEXION
