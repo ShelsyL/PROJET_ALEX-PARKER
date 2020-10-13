@@ -2,7 +2,7 @@
 /*
 	./app/vues/posts/show.php
 	Variables disponibles :
-    	- $post : ARRAY(id, title, content, created_at, quote,category_id)
+    	- $post : ARRAY(id, title, text, created_at, quote,category_id)
 */
 ?>
 
@@ -32,7 +32,7 @@
       <!-- Post Detail End -->
 
       <!-- TEXT -->
-      <p><?php echo $post['content']; ?></p>
+      <p><?php echo $post['text']; ?></p>
 
       <!-- Post Blockquote (Italic Style) Start -->
       <!-- QUOTE -->

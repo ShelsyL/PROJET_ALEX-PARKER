@@ -2,7 +2,7 @@
 /*
 	./app/vues/posts/index.php
 	Variables disponibles :
-    	- $posts : ARRAY(ARRAY(id, title, content, created_at, quote, category_id))
+    	- $posts : ARRAY(ARRAY(id, title, text, created_at, quote, category_id))
 */
 ?>
 
@@ -39,7 +39,7 @@
       </div>
 
       <!-- TEXT -->
-      <p><?php echo \Noyau\Fonctions\tronquer($post['content'], 150); ?></p>
+      <p><?php echo \Noyau\Fonctions\tronquer($post['text'], 150); ?></p>
       <a href="posts/<?php echo $post['id']; ?>/<?php echo \Noyau\Fonctions\slugify($post['title']); ?>" class="button button-style button-anim fa fa-long-arrow-right"><span>Read More</span></a>
 
       <?php endforeach; ?>

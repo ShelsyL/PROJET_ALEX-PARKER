@@ -54,8 +54,8 @@ function showAction(\PDO $connexion, int $id) { // Qui va récupérer une connex
 
 function addFormAction(\PDO $connexion) {
   // Je vais chercher la liste des CATEGORIES
-  // include_once '../app/modeles/categoriesModele.php';
-  // $categories = \App\Modeles\CategoriesModele\findAll($connexion);
+  include_once '../app/modeles/categoriesModele.php';
+  $categories = \App\Modeles\CategoriesModele\findAll($connexion);
 
   // Je charge la vue addForm (le formulaire) dans $content
   GLOBAL $content, $title;
