@@ -7,11 +7,6 @@
 namespace App\Controleurs\PostsControleur;
 use \App\Modeles\PostsModele;
 
-/**
- * [indexAction description]
- * @param  PDO    $connexion [description]
- * @return [type]            [description]
- */
 
 // INDEXACTION (liste des posts)
 // Je met dans $posts la liste des 10 derniers posts que je demande au modele.
@@ -29,18 +24,13 @@ function indexAction(\PDO $connexion) { // On récupère la connexion PDO
 }
 
 
-/**
- * [showAction description]
- * @param  PDO    $connexion [description]
- * @param  int    $id        [description]
- * @return [type]            [description]
- */
 
 // SHOWACTION (détail d'un post)
 function showAction(\PDO $connexion, int $id) { // Qui va récupérer une connexion PDO et un entier $id
  // TEST echo $id; => OK
  include_once '../app/modeles/postsModele.php';
  $post = PostsModele\findOneById($connexion, $id);
+ // $categorie = PostsModele\findOneById($connexion, $id);
 
  // Je charge la vue show dans $content
   GLOBAL $content, $title; // Objectif => Modifier les variables donc GLOBAL
@@ -50,6 +40,7 @@ function showAction(\PDO $connexion, int $id) { // Qui va récupérer une connex
    include '../app/vues/posts/show.php'; // Je charge la vue
   $content = ob_get_clean(); // Je met cette vue dans $content
 }
+
 
 
 function addFormAction(\PDO $connexion) {
@@ -66,11 +57,10 @@ function addFormAction(\PDO $connexion) {
 }
 
 
-function addAction(\PDO $connexion) {
+function addInsertAction(\PDO $connexion) {
   // Je demande au modèle d'ajouter le post
     include_once '../app/modeles/postsModele.php';
-    $id = PostsModele\insert($connexion, $_POST);
-
+    $id = PostsModele\insertOne($connexion, $_POST);
     // Je redirige vers la liste des posts
-    header('location: ' . BASE_URL_ADMIN . 'posts');
+    header('location: ' . BASE_URL_PUBLIC . 'posts');
 }

@@ -13,14 +13,18 @@ namespace App\Modeles\PostsModele;
  */
 
 // L'objectif de cette fonction est de faire une requete (regarder le png de DB pour voir a quoi ca ressemble)
-function findAll (\PDO $connexion) :array { // On récupère la connexion
-	$sql = "SELECT *
-      		FROM posts
-    			ORDER BY created_at DESC
-          LIMIT 10;";
+function findAll(\PDO $connexion) { // On récupère la connexion
+	$sql = "SELECT *, p.id AS postId,
+	   c.id AS categorieId,
+	   c.name AS categorieName,
+	   p.created_at AS postDate
+	   FROM posts p
+	   JOIN categories c ON p.category_id = c.id
+	   ORDER BY p.created_at DESC
+	   LIMIT 10;";
   // Pas de paramètres extérieur donc on peut l'exécuter directement
-  $rs = $connexion->query($sql);
-  return $rs->fetchAll(\PDO::FETCH_ASSOC); // On retourne un tableau indéxé de tableau associatif - Ce tableau associatif va se retouver dans $posts du fichier ./app/controleurs/postsControleur.php
+	$rs = $connexion->query($sql);
+	return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
 
 /**
@@ -30,10 +34,25 @@ function findAll (\PDO $connexion) :array { // On récupère la connexion
  * @return array            [description]
  */
 
+// function findOneById(\PDO $connexion, int $id) :array {
+// 	$sql = "SELECT *, posts.id AS postID
+// 					FROM posts
+// 					JOIN categories ON posts.category_id = categories.id
+// 					WHERE posts.id = :id;";
+// 	$rs = $connexion->prepare($sql);
+// 	$rs->bindValue(':id', $id, \PDO::PARAM_INT);
+// 	$rs->execute();
+// 	return $rs->fetch(\PDO::FETCH_ASSOC);
+// }
+
 function findOneById(\PDO $connexion, int $id) :array {
-	$sql = "SELECT *
-					FROM posts
-					WHERE id = :id;";
+	$sql = "SELECT *, p.id AS postId,
+	   c.id AS categorieId,
+	   c.name AS categorieName,
+	   p.created_at AS postDate
+	   FROM posts p
+	   JOIN categories c ON p.category_id = c.id
+					WHERE p.id = :id;";
 	$rs = $connexion->prepare($sql);
 	$rs->bindValue(':id', $id, \PDO::PARAM_INT);
 	$rs->execute();
@@ -42,10 +61,7 @@ function findOneById(\PDO $connexion, int $id) :array {
 
 
 
-
-
-
-function insert(\PDO $connexion, array $data) :int {
+function insertOne(\PDO $connexion, array $data) :int {
   $sql = "INSERT INTO posts
           SET title        = :title,
               text     		 = :text,
@@ -54,7 +70,7 @@ function insert(\PDO $connexion, array $data) :int {
               created_at   = NOW();";
   $rs = $connexion->prepare($sql);
   $rs->bindValue(':title',    $data['title'],    \PDO::PARAM_STR);
-  $rs->bindValue(':content',  $data['content'],  \PDO::PARAM_STR);
+  $rs->bindValue(':text',  $data['text'],  \PDO::PARAM_STR);
 	$rs->bindValue(':quote',  	$data['quote'],  \PDO::PARAM_STR);
   $rs->bindValue(':categorie', $data['categorie'], \PDO::PARAM_INT);
   $rs->execute();

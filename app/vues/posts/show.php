@@ -27,7 +27,7 @@
 
         <!-- DATE -->
         <?php $created_at = strtotime($post['created_at']); ?>
-        <span><?php echo date('Y\-m\-d', $created_at) ?></span> | <span>Life style</span>
+        <span><?php echo date('Y\-m\-d', $created_at) ?></span> | <span><?php echo $post['categorieName']; ?></span>
       </div>
       <!-- Post Detail End -->
 

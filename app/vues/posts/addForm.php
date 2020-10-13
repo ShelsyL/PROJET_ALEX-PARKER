@@ -27,12 +27,12 @@
            <!-- Post Headline End -->
 
         <!-- Form Start -->
-        <form action="post">
+        <form action="posts/add/insert" method="post">
 
           <!-- TITLE -->
           <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" name="title" id="title" class="form-control" placeholder="Enter your title here" />
+            <input id="title" type="text" name="title" class="form-control" placeholder="Enter your title here" />
           </div>
 
           <!-- TEXT -->
@@ -43,17 +43,17 @@
 
           <!-- QUOTE -->
           <div class="form-group">
-            <label for="text">Quote</label>
+            <label for="quote">Quote</label>
             <textarea id="quote" name="quote" class="form-control" rows="5" placeholder="Enter your quote here"></textarea>
           </div>
 
           <!-- CATEGORIES -->
           <div class="form-group">
-            <label for="text">Category</label>
-            <select id="<?php echo $category['id']; ?>" name="<?php echo $category['id']; ?>" class="form-control">
+            <label for="categorie">Category</label>
+            <select id="categorie" name="categorie" class="form-control">
               <option disabled selected>Select your category</option>
-              <?php foreach ($categories as $category): ?>
-                <option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
+              <?php foreach ($categories as $categorie): ?>
+                <option value="<?php echo $categorie['id']; ?>"><?php echo $categorie['name']; ?></option>
             <?php endforeach; ?>
             </select>
           </div>

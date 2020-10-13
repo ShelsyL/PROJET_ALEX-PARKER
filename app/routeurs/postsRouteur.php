@@ -20,6 +20,16 @@
   break;
 
 
+  /*
+  AJOUT D'UN POST: INSERT
+  PATTERN: index.php?posts=addInsert
+  CTRL: postsControleur
+  ACTION: addInsert
+  */
+  case 'addInsert':
+  PostsControleur\addInsertAction($connexion);
+  break;
+
 /*
 LISTE DES POSTS
 PATTERN: index.php?posts

@@ -31,6 +31,11 @@ RewriteEngine on
     # URL: index.php?posts=addForm
     RewriteRule ^posts\/add\/form$ index.php?posts=addForm [L]
 
+    # AJOUT D'UN POST: INSERT
+    # PATTERN: posts/add/insert
+    # URL: index.php?posts=addInsert
+    RewriteRule ^posts\/add\/insert$ index.php?posts=addInsert [L]
+
 # --------------------------------------------------
 RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]
 RewriteRule ^(.*)$ index.php [L]
