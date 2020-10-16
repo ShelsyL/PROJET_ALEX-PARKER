@@ -6,6 +6,7 @@
 
 namespace App\Controleurs\PostsControleur;
 use \App\Modeles\PostsModele;
+use \App\Modeles\CategoriesModele;
 
 
 // INDEXACTION (liste des posts)
@@ -46,7 +47,7 @@ function showAction(\PDO $connexion, int $id) { // Qui va récupérer une connex
 function addFormAction(\PDO $connexion) {
   // Je vais chercher la liste des CATEGORIES
   include_once '../app/modeles/categoriesModele.php';
-  $categories = \App\Modeles\CategoriesModele\findAll($connexion);
+  $categories = CategoriesModele\findAll($connexion);
 
   // Je charge la vue addForm (le formulaire) dans $content
   GLOBAL $content, $title;
@@ -63,4 +64,13 @@ function addInsertAction(\PDO $connexion) {
     $id = PostsModele\insertOne($connexion, $_POST);
     // Je redirige vers la liste des posts
     header('location: ' . BASE_URL_PUBLIC . 'posts');
+}
+
+
+function deleteAction(\PDO $connexion, int $id) {
+  // Je demande au modèle de supprimer le post
+  include_once '../app/modeles/postsModele.php';
+  $id = PostsModele\deleteOneById($connexion, $id);
+  // Je redirige vers la liste des posts
+  header('location: ' . BASE_URL_PUBLIC . 'posts');
 }

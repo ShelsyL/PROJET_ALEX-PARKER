@@ -24,24 +24,24 @@
     <div class="col-md-12 blog-post">
       <?php foreach ($posts as $post):
       // Transformation de la date en champs de type date
-      $created_at = strtotime($post['created_at']);
+      $postDate = strtotime($post['postDate']);
       ?>
 
       <!-- TITRE - SLUG URL -->
       <div class="post-title">
-        <a href="posts/<?php echo $post['id']; ?>/<?php echo \Noyau\Fonctions\slugify($post['title']); ?>">
+        <a href="posts/<?php echo $post['postId']; ?>/<?php echo \Noyau\Fonctions\slugify($post['title']); ?>">
           <h1><?php echo $post['title']; ?></h1>
         </a>
       </div>
 
       <!-- DATE | CATEGORIE-->
       <div class="post-info">
-        <span><?php echo date('Y\-m\-d', $created_at) ?></span> | <span><?php echo $post['categorieName']; ?></span>
+        <span><?php echo date('Y\-m\-d', $postDate) ?></span> | <span><?php echo $post['categorieName']; ?></span>
       </div>
 
       <!-- TEXT -->
       <p><?php echo \Noyau\Fonctions\tronquer($post['text'], 150); ?></p>
-      <a href="posts/<?php echo $post['id']; ?>/<?php echo \Noyau\Fonctions\slugify($post['title']); ?>" class="button button-style button-anim fa fa-long-arrow-right"><span>Read More</span></a>
+      <a href="posts/<?php echo $post['postId']; ?>/<?php echo \Noyau\Fonctions\slugify($post['title']); ?>" class="button button-style button-anim fa fa-long-arrow-right"><span>Read More</span></a>
 
       <?php endforeach; ?>
     </div>

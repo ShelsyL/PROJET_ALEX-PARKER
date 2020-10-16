@@ -26,8 +26,8 @@
       <div class="post-info">
 
         <!-- DATE -->
-        <?php $created_at = strtotime($post['created_at']); ?>
-        <span><?php echo date('Y\-m\-d', $created_at) ?></span> | <span><?php echo $post['categorieName']; ?></span>
+        <?php $postDate = strtotime($post['postDate']); ?>
+        <span><?php echo date('Y\-m\-d', $postDate) ?></span> | <span><?php echo $post['categorieName']; ?></span>
       </div>
       <!-- Post Detail End -->
 
@@ -43,8 +43,8 @@
 
       <!-- Post Buttons -->
       <div>
-        <a href="form.html" type="button" class="btn btn-primary">Edit Post</a>
-        <a href="#" type="button" class="btn btn-secondary" role="button">Delete Post</a>
+        <a href="form.html" type="button" class="edit">Edit Post</a>
+        <a href="posts/delete/<?php echo $post['postId']; ?>"  type="button" class="delete" role="button">Delete Post</a>
       </div>
       <!-- Post Buttons End -->
 

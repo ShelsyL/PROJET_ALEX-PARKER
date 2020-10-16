@@ -2,6 +2,7 @@
 /*
   ./app/routeurs/postsRouteur.php
   ROUTES DES POSTS
+  Il existe un $_GET['posts']
  */
 
  use App\Controleurs\PostsControleur;
@@ -29,15 +30,26 @@
   case 'addInsert':
   PostsControleur\addInsertAction($connexion);
   break;
+  
 
-/*
-LISTE DES POSTS
-PATTERN: index.php?posts
-CTRL: postsControleur
-ACTION: index
-*/
-default:
-PostsControleur\indexAction($connexion);
-break;
+  /*
+  LISTE DES POSTS
+  PATTERN: index.php?posts
+  CTRL: postsControleur
+  ACTION: index
+  */
+  default:
+  PostsControleur\indexAction($connexion);
+  break;
+
+  /*
+  SUPPRESSION DES POSTS
+  PATTERN: index.php?posts=delete&id=x
+  CTRL: postsControleur
+  ACTION: delete
+  */
+  case 'delete':
+  PostsControleur\deleteAction($connexion, $_GET['id']);
+  break;
 
 }

@@ -36,6 +36,11 @@ RewriteEngine on
     # URL: index.php?posts=addInsert
     RewriteRule ^posts\/add\/insert$ index.php?posts=addInsert [L]
 
+    # SUPPRESSION POSTS
+    # PATTERN: posts/delete/x
+    # URL: index.php?posts=delete&id=x
+    RewriteRule ^posts\/delete\/([1-9][0-9]*)$ index.php?posts=delete&id=$1 [L]
+
 # --------------------------------------------------
 RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]
 RewriteRule ^(.*)$ index.php [L]
