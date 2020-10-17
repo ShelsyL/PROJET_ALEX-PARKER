@@ -41,6 +41,12 @@ RewriteEngine on
     # URL: index.php?posts=delete&id=x
     RewriteRule ^posts\/delete\/([1-9][0-9]*)$ index.php?posts=delete&id=$1 [L]
 
+    # EDITION POSTS: FORMULAIRE
+    # PATTERN: posts/edit/form/x
+    # URL: index.php?posts=editForm&id=x
+    RewriteRule ^posts\/edit\/form\/([1-9][0-9]*)$ index.php?posts=editForm&id=$1 [L]
+
+
 # --------------------------------------------------
 RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]
 RewriteRule ^(.*)$ index.php [L]

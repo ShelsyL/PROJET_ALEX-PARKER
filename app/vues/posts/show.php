@@ -2,7 +2,8 @@
 /*
 	./app/vues/posts/show.php
 	Variables disponibles :
-    	- $post : ARRAY(id, title, text, created_at, quote,category_id)
+    -$posts: ARRAY(ARRAY(id AS postId, title, text, created_at AS postDate, quote, category_id))
+    -$categories: ARRAY(ARRAY(id AS categorieId, name AS categorieName, created_at))
 */
 ?>
 
@@ -43,7 +44,7 @@
 
       <!-- Post Buttons -->
       <div>
-        <a href="form.html" type="button" class="edit">Edit Post</a>
+        <a href="posts/edit/form/<?php echo $post['postId']; ?>" type="button" class="edit">Edit Post</a> |
         <a href="posts/delete/<?php echo $post['postId']; ?>"  type="button" class="delete" role="button">Delete Post</a>
       </div>
       <!-- Post Buttons End -->

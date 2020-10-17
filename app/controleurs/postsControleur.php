@@ -74,3 +74,18 @@ function deleteAction(\PDO $connexion, int $id) {
   // Je redirige vers la liste des posts
   header('location: ' . BASE_URL_PUBLIC . 'posts');
 }
+
+function editFormAction(\PDO $connexion, int $id) {
+    // Je demande au modèle de trouver le post à afficher dans le formulaire
+    include_once '../app/modeles/postsModele.php';
+    $post = PostsModele\findOneById($connexion, $id);
+    // Je vais chercher les catégories
+    include_once '../app/modeles/categoriesModele.php';
+    $categories = CategoriesModele\findAll($connexion);
+    // Je charge la vue editForm dans $content
+    GLOBAL $content, $title;
+    $title = "Edition d'un post";
+    ob_start();
+      include '../app/vues/posts/editForm.php';
+    $content = ob_get_clean();
+  }

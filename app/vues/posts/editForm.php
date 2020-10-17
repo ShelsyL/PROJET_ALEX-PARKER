@@ -1,6 +1,6 @@
 <?php
 /*
-  ./app/vues/posts/addForm.php
+  ./app/vues/posts/editForm.php
   Variables disponibles:
     -$posts: ARRAY(ARRAY(id AS postId, title, text, created_at AS postDate, quote, category_id))
     -$categories: ARRAY(ARRAY(id AS categorieId, name AS categorieName, created_at))
@@ -27,26 +27,26 @@
            <!-- Post Headline End -->
 
         <!-- Form Start -->
-        <form action="posts/add/insert" method="post">
+        <form action="posts/edit/<?php echo $post['postId']; ?>" method="post">
 
           <!-- TITLE -->
           <div class="form-group">
             <label for="title">Title</label>
-            <input id="title" type="text" name="title" class="form-control" placeholder="Enter your title here" />
+            <input id="title" type="text" name="title" class="form-control" placeholder="Enter your title here" value="<?php echo $post['title']; ?>"/>
           </div>
           <!-- /FIN TITLE -->
 
           <!-- TEXT -->
           <div class="form-group">
             <label for="text">Text</label>
-            <textarea id="text" name="text" class="form-control" rows="5" placeholder="Enter your text here"></textarea>
+            <textarea id="text" name="text" class="form-control" rows="5" placeholder="Enter your text here"><?php echo $post['text']; ?></textarea>
           </div>
           <!-- /FIN TEXT -->
 
           <!-- QUOTE -->
           <div class="form-group">
             <label for="quote">Quote</label>
-            <textarea id="quote" name="quote" class="form-control" rows="5" placeholder="Enter your quote here"></textarea>
+            <textarea id="quote" name="quote" class="form-control" rows="5" placeholder="Enter your quote here"><?php echo $post['quote']; ?></textarea>
           </div>
           <!-- /FIN QUOTE -->
 
@@ -56,7 +56,14 @@
             <select id="categorie" name="categorie" class="form-control">
               <option disabled selected>Select your category</option>
               <?php foreach ($categories as $categorie): ?>
-                <option value="<?php echo $categorie['id']; ?>"><?php echo $categorie['name']; ?></option>
+
+                <!-- si c'est l'id que l'on rechercher on selectionne l'option dans la liste -->
+                <option
+                value="<?php echo $categorie['id']; ?>"
+                <?php if($categorie['id'] == $post['categorieId']) {echo 'selected="selected"';}?>>
+                <?php echo $categorie['name']; ?>
+              </option>
+
             <?php endforeach; ?>
             </select>
           </div>

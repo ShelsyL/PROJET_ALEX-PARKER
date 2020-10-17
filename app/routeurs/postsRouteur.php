@@ -30,7 +30,7 @@
   case 'addInsert':
   PostsControleur\addInsertAction($connexion);
   break;
-  
+
 
   /*
   LISTE DES POSTS
@@ -51,5 +51,15 @@
   case 'delete':
   PostsControleur\deleteAction($connexion, $_GET['id']);
   break;
+
+  /*
+EDITION DES POSTS: FORMULAIRE
+PATTERN: index.php?posts=editForm&id=x
+CTRL: postsControleur
+ACTION: editForm
+*/
+case 'editForm':
+PostsControleur\editFormAction($connexion, $_GET['id']);
+break;
 
 }

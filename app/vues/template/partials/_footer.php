@@ -9,7 +9,7 @@
 <div class="col-md-12 page-body margin-top-50 footer">
    <footer>
    <ul class="menu-link">
-        <li><a href="index.html">My Blog</a></li>
+        <li><a href="posts">My Blog</a></li>
      </ul>
 
    <p>© Copyright 2016 DevBlog. All rights reserved</p>
