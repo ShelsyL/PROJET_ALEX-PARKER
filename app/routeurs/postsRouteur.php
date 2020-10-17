@@ -33,16 +33,6 @@
 
 
   /*
-  LISTE DES POSTS
-  PATTERN: index.php?posts
-  CTRL: postsControleur
-  ACTION: index
-  */
-  default:
-  PostsControleur\indexAction($connexion);
-  break;
-
-  /*
   SUPPRESSION DES POSTS
   PATTERN: index.php?posts=delete&id=x
   CTRL: postsControleur
@@ -60,6 +50,28 @@ ACTION: editForm
 */
 case 'editForm':
 PostsControleur\editFormAction($connexion, $_GET['id']);
+break;
+
+
+/*
+EDITION DES POSTS: UPDATE
+PATTERN: index.php?posts=edit&id=x
+CTRL: postsControleur
+ACTION: edit
+*/
+case 'edit':
+PostsControleur\editAction($connexion, $_GET['id']);
+break;
+
+
+/*
+LISTE DES POSTS
+PATTERN: index.php?posts
+CTRL: postsControleur
+ACTION: index
+*/
+default:
+PostsControleur\indexAction($connexion);
 break;
 
 }

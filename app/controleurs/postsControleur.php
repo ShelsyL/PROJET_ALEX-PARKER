@@ -75,6 +75,7 @@ function deleteAction(\PDO $connexion, int $id) {
   header('location: ' . BASE_URL_PUBLIC . 'posts');
 }
 
+
 function editFormAction(\PDO $connexion, int $id) {
     // Je demande au modèle de trouver le post à afficher dans le formulaire
     include_once '../app/modeles/postsModele.php';
@@ -89,3 +90,12 @@ function editFormAction(\PDO $connexion, int $id) {
       include '../app/vues/posts/editForm.php';
     $content = ob_get_clean();
   }
+
+
+  function editAction(\PDO $connexion, int $id) {
+  // Je demande au modèle d'updater le post
+  include_once '../app/modeles/postsModele.php';
+  $id = PostsModele\updateOneById($connexion, $id, $_POST);
+  // Je redirige vers la liste des posts
+  header('location: ' . BASE_URL_PUBLIC . 'posts');
+}

@@ -41,10 +41,15 @@ RewriteEngine on
     # URL: index.php?posts=delete&id=x
     RewriteRule ^posts\/delete\/([1-9][0-9]*)$ index.php?posts=delete&id=$1 [L]
 
-    # EDITION POSTS: FORMULAIRE
+    # EDITION POSTS: FORMULAIRE (Chargement du formulaire)
     # PATTERN: posts/edit/form/x
     # URL: index.php?posts=editForm&id=x
     RewriteRule ^posts\/edit\/form\/([1-9][0-9]*)$ index.php?posts=editForm&id=$1 [L]
+
+    # EDITION POSTS: UPDATE
+    # PATTERN: posts/edit/x
+    # URL: index.php?posts=edit&id=x
+    RewriteRule ^posts\/edit\/([1-9][0-9]*)$ index.php?posts=edit&id=$1 [L]
 
 
 # --------------------------------------------------

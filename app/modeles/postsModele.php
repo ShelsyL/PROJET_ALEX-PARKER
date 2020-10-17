@@ -71,3 +71,20 @@ function deleteOneById(\PDO $connexion, int $id) :bool {
   $rs->bindValue(':id', $id, \PDO::PARAM_INT);
   return intval($rs->execute()); //  intval va retourner un 0 => si ca se passe mal - et un 1 => si ca c'est bien passé, en fct de ca on aura un message d'erreur
 }
+
+
+function updateOneById(\PDO $connexion, int $id, array $data) :bool {
+	$sql = "UPDATE posts
+					SET title        = :title,
+							text     		 = :text,
+							quote 			 = :quote,
+							category_id  = :categorie
+					WHERE id         = :id;";
+	$rs = $connexion->prepare($sql);
+	$rs->bindValue(':title',     $data['title'],     \PDO::PARAM_STR);
+	$rs->bindValue(':text',  		 $data['text'],  	 	 \PDO::PARAM_STR);
+	$rs->bindValue(':quote',  	 $data['quote'],  	 \PDO::PARAM_STR);
+	$rs->bindValue(':categorie', $data['categorie'], \PDO::PARAM_INT);
+	$rs->bindValue(':id', $id, \PDO::PARAM_INT);
+	return intval($rs->execute());
+}
