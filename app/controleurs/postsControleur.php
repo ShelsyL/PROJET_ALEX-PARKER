@@ -24,7 +24,7 @@ function indexAction(\PDO $connexion) {
     // Je charge la vue post/index dans $content
     // var_dump($posts); => Etape OK
     GLOBAL $content, $title;
-    $title = "Post Form";
+    $title = "Blog";
     ob_start();
       include '../app/vues/posts/index.php';
       $content = ob_get_clean();
@@ -70,7 +70,7 @@ function addFormAction(\PDO $connexion) {
 
     // Je charge la vue addForm (le formulaire) dans $content
     GLOBAL $content, $title;
-    $title = "Ajout d'un post";
+    $title = "Add a post";
     ob_start();
     include '../app/vues/posts/addForm.php';
     $content = ob_get_clean();
@@ -148,7 +148,7 @@ function editFormAction(\PDO $connexion, int $id) {
 function editAction(\PDO $connexion, int $id) {
     // Je demande au modèle d'updater le post
     include_once '../app/modeles/postsModele.php';
-    $id = PostsModele\updateOneById($connexion, $id, $_POST);
-    // Je redirige vers la liste des posts
-    header('location: ' . BASE_URL_PUBLIC . 'posts');
+    $return = PostsModele\updateOneById($connexion, $id, $_POST);
+    // Je redirige vers le détail du post modifié
+    header('location: ' . BASE_URL_PUBLIC . 'posts/' . $id . '/' . \Noyau\Fonctions\slugify($_POST['title']));
 }

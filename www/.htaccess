@@ -16,39 +16,46 @@ RewriteEngine on
   # ROUTES DES POSTS
   #--------------------------------------------------
 
-    # LISTE DES POSTS (On arrive sur la liste des posts)
+    # ROUTE PAR DEFAUT: liste des posts (On arrive sur la liste des posts)
     # PATTERN: posts
     # URL: index.php?posts
+    # TITLE: Alex Parker - Blog
     RewriteRule ^posts$ index.php?posts [L]
 
-    # ROUTE D'UN POST
-    # PATTERN: posts/id/slug.html (titre = Article 1) => (slug: article-1)
+    # ROUTE DU DETAIL D'UN POST
+    # PATTERN: /posts/id/slug-du-post.html
     # URL: post.php?ID=x
+    # TITLE: Alex Parker - Title du post
     RewriteRule ^posts\/([1-9][0-9]*)\/[a-z0-9][a-z0-9\-]*$ index.php?postId=$1 [L]
 
     # AJOUT POSTS: FORMULAIRE (On arrive sur le formulaire pour ajouter un post)
-    # PATTERN: posts/add/form
+    # PATTERN: /posts/add/form.html
     # URL: index.php?posts=addForm
+    # TITLE: Alex Parker - Add a post
     RewriteRule ^posts\/add\/form$ index.php?posts=addForm [L]
 
     # AJOUT D'UN POST: INSERT
     # PATTERN: posts/add/insert
     # URL: index.php?posts=addInsert
+    # TITLE : /
     RewriteRule ^posts\/add\/insert$ index.php?posts=addInsert [L]
 
     # SUPPRESSION POSTS
     # PATTERN: posts/delete/x
     # URL: index.php?posts=delete&id=x
+    # TITLE : /
     RewriteRule ^posts\/delete\/([1-9][0-9]*)$ index.php?posts=delete&id=$1 [L]
 
     # EDITION POSTS: FORMULAIRE (Chargement du formulaire)
     # PATTERN: posts/edit/form/x
     # URL: index.php?posts=editForm&id=x
+    # TITLE : /
     RewriteRule ^posts\/edit\/form\/([1-9][0-9]*)$ index.php?posts=editForm&id=$1 [L]
 
     # EDITION POSTS: UPDATE
     # PATTERN: posts/edit/x
     # URL: index.php?posts=edit&id=x
+    # TITLE : /
     RewriteRule ^posts\/edit\/([1-9][0-9]*)$ index.php?posts=edit&id=$1 [L]
 
 

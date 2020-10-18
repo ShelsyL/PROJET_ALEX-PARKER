@@ -11,7 +11,7 @@
   <?php foreach ($categories as $category): ?>
     <li>
       <a href="index.html">
-        <?php echo $category['name']; ?>[12]</a>
+        <?php echo $category['name']; ?>[xx]</a>
     </li>
   <?php endforeach; ?>
  </ul>

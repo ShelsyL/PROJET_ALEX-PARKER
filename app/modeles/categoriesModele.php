@@ -14,11 +14,11 @@
  * @return array            [description]
  */
 
-  // Va chercher toute les catégories, trié par ordre name
- function findAll (\PDO $connexion) :array {
- 	$sql = "SELECT *
+// Va chercher toute les catégories, trié par ordre name
+function findAll (\PDO $connexion) :array {
+  $sql = "SELECT *
           FROM categories
           ORDER BY name ASC;";
-   $rs = $connexion->query($sql);
-   return $rs->fetchAll(\PDO::FETCH_ASSOC);
+  $rs = $connexion->query($sql);
+  return $rs->fetchAll(\PDO::FETCH_ASSOC);
  }
