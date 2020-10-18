@@ -6,14 +6,14 @@ ALEX PARKER - CONSIGNES
 		- Texte tronqué à 150 caractères 	=> OK
 		- Date formatée 	=> OK ( a revoir si c'est bon formatage)
 		- Lien vers le détails d'un post => OK
-		- Lien vers le formulaire d'ajout d'un post
+		- Lien vers le formulaire d'ajout d'un post => OK
 
 	2. Détails d'un post
-		- title, text, categporie et quote du post
-		- lien pour la modification et la suppression du post
+		- title, text, categporie et quote du post => OK
+		- lien pour la modification et la suppression du post => OK
 
 	3. Formulaire d'ajout et de modification d'un post
-		- title, text, categorie et quote du post
+		- title, text, categorie et quote du post => OK
 
 LA LISTE DES CATEGORIES DANS LE MENU
 	Ajouter la lsite des catégories dans la colonne de gauche (présente sur chaque page)

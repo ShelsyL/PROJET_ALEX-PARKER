@@ -1,7 +1,7 @@
 <?php
 /*
-	./noyau/init.php
-    FICHIER D'INITIALISATION
+  ./noyau/init.php
+  FICHIER D'INITIALISATION
 */
 // session_start();
 

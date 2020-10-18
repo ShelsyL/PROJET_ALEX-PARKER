@@ -21,11 +21,17 @@
                            <li><a href="index.html">My blog</a></li>
                         </ul>
                      </nav>
-                     <ul class="menu-link">
-                         <li><a href="index.html">Life style [12]</a></li>
-                         <li><a href="index.html">Sport[23]</a></li>
-                         <li><a href="index.html">Music[46]</a></li>
-                      </ul>
+
+                     <!-- CATEGORIES -->
+                       <?php
+                         // Je passe directement par le chargement de la vue
+                         // $categories est directement appelé par le modele et renvois un tableau indexé de tableau associatif.
+                          include_once '../app/modeles/categoriesModele.php';
+                          $categories = \App\Modeles\CategoriesModele\findAll($connexion);
+                          include '../app/vues/categories/index.php';
+                        ?>
+                      <!-- /FIN CATEGORIES -->
+
                   </div>
 
 

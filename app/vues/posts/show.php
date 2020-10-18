@@ -28,7 +28,8 @@
 
         <!-- DATE -->
         <?php $postDate = strtotime($post['postDate']); ?>
-        <span><?php echo date('Y\-m\-d', $postDate) ?></span> | <span><?php echo $post['categorieName']; ?></span>
+        <span><?php echo date('Y\-m\-d', $postDate) ?></span> |
+        <span><?php echo $post['categorieName']; ?></span>
       </div>
       <!-- Post Detail End -->
 

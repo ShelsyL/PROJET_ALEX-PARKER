@@ -10,6 +10,7 @@
 
  switch ($_GET['posts']) {
 
+
   /*
   AJOUT D'UN POST: FORMULAIRE
   PATTERN: index.php?posts=addForm
@@ -19,6 +20,7 @@
   case 'addForm':
   PostsControleur\addFormAction($connexion); // Quand on affiche le formulaire, on a besoin de la base de donnée => Besoin de la liste des auteurs pour le menu déroulant.=> Donc besoin de la connexion
   break;
+
 
 
   /*
@@ -32,6 +34,7 @@
   break;
 
 
+
   /*
   SUPPRESSION DES POSTS
   PATTERN: index.php?posts=delete&id=x
@@ -41,6 +44,8 @@
   case 'delete':
   PostsControleur\deleteAction($connexion, $_GET['id']);
   break;
+
+
 
   /*
 EDITION DES POSTS: FORMULAIRE
@@ -53,6 +58,7 @@ PostsControleur\editFormAction($connexion, $_GET['id']);
 break;
 
 
+
 /*
 EDITION DES POSTS: UPDATE
 PATTERN: index.php?posts=edit&id=x
@@ -62,6 +68,7 @@ ACTION: edit
 case 'edit':
 PostsControleur\editAction($connexion, $_GET['id']);
 break;
+
 
 
 /*

@@ -14,10 +14,11 @@
     \App\Controleurs\PostsControleur\showAction($connexion, $_GET['postId']);
 
 
+
   // ROUTES DES POSTS
   // PATTERN: index.php?posts=xxx
   elseif (isset($_GET['posts'])):
-     include_once '../app/routeurs/postsRouteur.php';
+    include_once '../app/routeurs/postsRouteur.php';
 
 
 
@@ -26,6 +27,7 @@
   // CTRL: postsControleur
   // ACTION: index
   else:
-  include_once '../app/controleurs/postsControleur.php';
-  \App\Controleurs\PostsControleur\indexAction($connexion);
+    include_once '../app/controleurs/postsControleur.php';
+    \App\Controleurs\PostsControleur\indexAction($connexion);
+
 endif;
